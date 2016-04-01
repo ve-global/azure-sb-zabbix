@@ -42,3 +42,12 @@ Options:
 > ./azure-sb.py -h my-servicebus -k XjGbthddfslAD8= -a subscription-active -t mytopic -s mysubscription
 21
 ```
+
+###using with zabbix_sender
+If you want to use this script with the zabbix_sender utility then there's a [shell script provided](zabbix-sender.sh) which will invoke azure-sb.py and pipe the result to zabbix_sender.
+
+Usually you would invoke this from a cron-job (or similar)
+
+```
+*/2 * * * * /path/to/azure-sb-zabbix/zabbix-sender.sh myzabbix.server.com my-servicebus-namespace accesskey mytopic > /dev/null 2>&1
+```
