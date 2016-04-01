@@ -2,16 +2,8 @@
 
 from azure.servicebus import ServiceBusService
 
-import base64
-import json
 import optparse
 import sys
-import urllib2
-
-mappings = {
-  'topologies': 'topology/summary',
-  'topology': 'topology/%(id)s'
-}
 
 def get_sbs(options):
   return ServiceBusService(options.host, shared_access_key_name=options.keyname, shared_access_key_value=options.key)
